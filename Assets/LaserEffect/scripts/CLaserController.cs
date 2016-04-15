@@ -31,10 +31,10 @@ public class CLaserController : MonoBehaviour {
 		int target = 0;
 		while (true)
 		{
-            // 베지어 곡선의 마지막 점을 타겟위치로 갱신하여 계속 따라다니게 함.
+            // Follow the target.
             end_point.position = this.enemies [target].position;
 
-            // 3초가 지나면 타겟 변경.
+            // Change the target after 3 seconds.
             if (Time.time - prev_time > 3.0f)
             {
                 prev_time = Time.time;
