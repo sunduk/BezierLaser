@@ -23,7 +23,7 @@ public class CLaserRenderer : MonoBehaviour {
 
 	void set_vertex_count(int count)
 	{
-		this.line_renderer.SetVertexCount (count);
+		this.line_renderer.positionCount = count;
 	}
 
 

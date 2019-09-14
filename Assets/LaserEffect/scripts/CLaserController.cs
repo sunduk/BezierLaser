@@ -6,6 +6,9 @@ public class CLaserController : MonoBehaviour {
 	[SerializeField]
 	Transform[] enemies;
 
+    [SerializeField]
+    float speed = 1.0f;
+
 	CBezier bezier;
 
 
@@ -21,6 +24,16 @@ public class CLaserController : MonoBehaviour {
 	}
 
 
+    void Update()
+    {
+        float hInput = Input.GetAxis("Horizontal");
+        float vInput = Input.GetAxis("Vertical");
+
+        Vector3 velocity = new Vector3(hInput, vInput, 0) * this.speed;
+        transform.position += Time.deltaTime * velocity;
+    }
+
+
 	IEnumerator routine_shoot()
 	{
 		yield return new WaitForSeconds (1.0f);
@@ -34,7 +47,7 @@ public class CLaserController : MonoBehaviour {
             // Follow the target.
             end_point.position = this.enemies [target].position;
 
-            // Change the target after 3 seconds.
+            // Change the target every 3 seconds.
             if (Time.time - prev_time > 3.0f)
             {
                 prev_time = Time.time;

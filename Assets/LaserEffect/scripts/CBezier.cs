@@ -29,6 +29,24 @@ public class CBezier : MonoBehaviour {
 	}
 
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        for (int i = 0; i < this.points.Length; ++i)
+        {
+            Gizmos.DrawSphere(this.points[i].position, 0.5f);
+
+            if (i < this.points.Length - 1)
+            {
+                Vector3 current = this.points[i].position;
+                Vector3 next = this.points[i + 1].position;
+
+                Gizmos.DrawLine(current, next);
+            }
+        }
+    }
+
+
 	public Vector3 bezier(float t)
 	{
 		if (this.points.Length == 3)
