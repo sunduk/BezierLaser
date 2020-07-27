@@ -1,5 +1,5 @@
 # BezierLaser
-A Laser effect using bezier curve. Unity engine.
+A Laser effect using a bezier curve. Unity engine.
 
 ![alt tag](https://github.com/sunduk/BezierLaser/blob/master/preview.gif?raw=true)
 
